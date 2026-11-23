@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kitab Alfiyah Ibnu Malik - الخُلاصَةُ فِي النَّحْوِ وَالصَّرْفِ</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Amiri, Scheherazade New (Arab Klasik), Plus Jakarta Sans & Cinzel (Latin) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:ital,wght@0,400;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Phosphor Icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                        arabic: ['"Amiri"', '"Scheherazade New"', 'serif'],
+                    },
+                    colors: {
+                        emerald: {
+                            850: '#064e3b',
+                            900: '#043927',
+                            950: '#02261a',
+                        },
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#d4af37',
+                            600: '#b48a1e',
+                        },
+                        parchment: {
+                            50: '#fdfbf7',
+                            100: '#f8f4ea',
+                            200: '#efe7d6',
+                            300: '#e2d4b7',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Pola Geometris Islami Halus untuk Latar Belakang */
+        .islamic-pattern {
+            background-image: radial-gradient(rgba(212, 175, 55, 0.12) 1px, transparent 1px),
+                              radial-gradient(rgba(4, 57, 39, 0.06) 1px, #fdfbf7 1px);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
+        }
+        .dark .islamic-pattern {
+            background-image: radial-gradient(rgba(212, 175, 55, 0.08) 1px, transparent 1px),
+                              radial-gradient(rgba(16, 185, 129, 0.05) 1px, #091512 1px);
+            background-size: 28px 28px;
+            background-position: 0 0, 14px 14px;
+        }
+
+        /* Tipografi Arab & Penyesuaian Ukuran Dinamis */
+        .arabic-text {
+            font-family: 'Amiri', 'Scheherazade New', serif;
+            line-height: 2.25;
+            direction: rtl;
+        }
+        .font-arab-sm .arabic-text { font-size: 1.35rem; }
+        .font-arab-md .arabic-text { font-size: 1.7rem; }
+        .font-arab-lg .arabic-text { font-size: 2.15rem; }
+
+        @media (max-width: 640px) {
+            .font-arab-sm .arabic-text { font-size: 1.2rem; }
+            .font-arab-md .arabic-text { font-size: 1.45rem; }
+            .font-arab-lg .arabic-text { font-size: 1.75rem; }
+        }
+
+        /* Ornamen Pemisah Bait Klasik */
+        .bait-divider {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: #d4af37;
+            font-size: 1.1rem;
+            user-select: none;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 6px;
+            height: 6px;
+        }
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: rgba(180, 138, 30, 0.35);
+            border-radius: 9999px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: rgba(180, 138, 30, 0.6);
+        }
+    </style>
+</head>
+<body class="islamic-pattern bg-parchment-50 text-slate-800 dark:bg-[#091512] dark:text-slate-100 transition-colors duration-300 font-arab-md min-h-screen flex flex-col">
+
+    <!-- HEADER UTAMA -->
+    <header class="sticky top-0 z-40 bg-emerald-900 dark:bg-emerald-950 text-white border-b-2 border-gold-500/60 shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex flex-wrap items-center justify-between gap-3">
+            
+            <!-- Kiri: Tombol Drawer Mobile + Judul Kitab -->
+            <div class="flex items-center gap-3">
+                <button id="mobileMenuBtn" aria-label="Buka Daftar Bab" class="lg:hidden p-2 rounded-xl bg-emerald-800/80 hover:bg-emerald-700 text-gold-400 border border-gold-500/30 transition">
+                    <i class="ph ph-list text-2xl"></i>
+                </button>
+                <div class="flex items-center gap-3">
+                    <div class="hidden sm:flex w-11 h-11 rounded-xl bg-gradient-to-br from-gold-400 to-gold-600 text-emerald-950 items-center justify-center shadow-inner font-arabic font-bold text-2xl border border-yellow-200">
+                        ألفية
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2 flex-wrap">
+                            <h1 class="text-lg sm:text-xl font-bold tracking-tight text-parchment-50">
+                                Kitab Alfiyah Ibnu Malik
+                            </h1>
+                            <span class="hidden md:inline-block px-2 py-0.5 text-xs font-medium rounded-full bg-gold-500/20 text-gold-400 border border-gold-500/40">
+                                1002 Bait
+                            </span>
+                        </div>
+                        <p class="font-arabic text-gold-400 text-base sm:text-lg leading-tight mt-0.5" dir="rtl">
+                            الخُلاصَةُ فِي النَّحْوِ وَالصَّرْفِ لِابْنِ مَالِكٍ الأَنْدَلُسِيِّ
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Kanan: Kontrol Tampilan & Mode Kuis -->
+            <div class="flex items-center gap-2 sm:gap-2.5">
+                <!-- Tombol Mode Kuis / Muraja'ah -->
+                <button id="openQuizBtn" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-gradient-to-r from-gold-500 to-gold-600 hover:from-gold-400 hover:to-gold-500 text-emerald-950 font-semibold text-xs sm:text-sm shadow-md transition transform active:scale-95">
+                    <i class="ph-fill ph-exam text-lg"></i>
+                    <span>Muraja'ah / Kuis</span>
+                </button>
+
+                <!-- Pengatur Ukuran Font Arab -->
+                <div class="hidden sm:flex items-center bg-emerald-950/70 rounded-xl p-1 border border-emerald-700/70" title="Ukuran Huruf Arab">
+                    <button data-font="sm" class="font-size-btn px-2 py-1 text-xs rounded-lg text-slate-300 hover:text-white transition">ع-</button>
+                    <button data-font="md" class="font-size-btn px-2 py-1 text-sm rounded-lg bg-emerald-700 text-gold-400 font-bold transition">ع</button>
+                    <button data-font="lg" class="font-size-btn px-2 py-1 text-base rounded-lg text-slate-300 hover:text-white transition">ع+</button>
+                </div>
+
+                <!-- Toggle Dark Mode -->
+                <button id="themeToggleBtn" aria-label="Ganti Tema Gelap/Terang" class="p-2.5 rounded-xl bg-emerald-800/80 hover:bg-emerald-700 text-gold-400 border border-emerald-700 transition" title="Mode Gelap / Terang">
+                    <i id="themeIcon" class="ph-fill ph-moon-stars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Bar Kontrol Sekunder (Toggle Harakat, Terjemahan, Syarah, Ukuran Font Mobile) -->
+        <div class="bg-emerald-950/80 border-t border-emerald-800/80 px-4 sm:px-6 py-2">
+            <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2 text-xs">
+                <div class="flex flex-wrap items-center gap-2 sm:gap-3">
+                    <span class="text-emerald-300/80 hidden md:inline font-medium">Tampilan Nadhom:</span>
+                    
+                    <!-- Toggle Harakat / Syakal -->
+                    <button id="toggleHarakatBtn" class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-800/90 text-gold-400 border border-gold-500/40 hover:bg-emerald-700 transition">
+                        <i class="ph-bold ph-check-circle text-sm" id="harakatIcon"></i>
+                        <span>Harakat / Syakal</span>
+                    </button>
+
+                    <!-- Toggle Terjemahan -->
+                    <button id="toggleTransBtn" class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-800/90 text-gold-400 border border-gold-500/40 hover:bg-emerald-700 transition">
+                        <i class="ph-bold ph-check-circle text-sm" id="transIcon"></i>
+                        <span>Terjemahan</span>
+                    </button>
+
+                    <!-- Buka Semua Syarah -->
+                    <button id="toggleAllSyarahBtn" class="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-emerald-900/60 text-emerald-200 border border-emerald-700 hover:bg-emerald-800 transition">
+                        <i class="ph ph-book-open-text text-sm"></i>
+                        <span id="allSyarahText">Buka Semua Syarah</span>
+                    </button>
+                </div>
+
+                <!-- Ukuran Font Mobile & Progres Hafalan Singkat -->
+                <div class="flex items-center gap-3">
+                    <div class="flex sm:hidden items-center bg-emerald-900 rounded-lg p-0.5 border border-emerald-700">
+                        <button data-font="sm" class="font-size-btn px-2 py-0.5 text-xs rounded text-slate-300">ع-</button>
+                        <button data-font="md" class="font-size-btn px-2 py-0.5 text-xs rounded bg-emerald-700 text-gold-400 font-bold">ع</button>
+                        <button data-font="lg" class="font-size-btn px-2 py-0.5 text-xs rounded text-slate-300">ع+</button>
+                    </div>
+                    <div class="flex items-center gap-1.5 text-emerald-200">
+                        <i class="ph-fill ph-bookmark-simple text-gold-400"></i>
+                        <span>Hafalan: <strong id="headerBookmarkCount" class="text-gold-400">0</strong>/<span id="headerTotalCount">0</span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- KONTEN UTAMA (SIDEBAR + DAFTAR BAIT) -->
+    <div class="max-w-7xl w-full mx-auto px-4 sm:px-6 py-6 flex-1 flex gap-6 relative">
+
+        <!-- OVERLAY DRAWER MOBILE -->
+        <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 backdrop-blur-xs z-40 hidden lg:hidden transition-opacity"></div>
+
+        <!-- SIDEBAR DAFTAR BAB -->
+        <aside id="sidebarDrawer" class="fixed lg:sticky top-0 lg:top-28 left-0 z-50 lg:z-30 h-full lg:h-[calc(100vh-8rem)] w-80 lg:w-72 xl:w-80 bg-parchment-100 dark:bg-[#0d1f1a] border-r lg:border border-parchment-300 dark:border-emerald-800/80 lg:rounded-2xl shadow-xl lg:shadow-sm flex flex-col transform -translate-x-full lg:translate-x-0 transition-transform duration-300">
+            
+            <!-- Header Sidebar -->
+            <div class="p-4 border-b border-parchment-300 dark:border-emerald-800/80 flex items-center justify-between bg-parchment-200/60 dark:bg-emerald-950/60 lg:rounded-t-2xl">
+                <div class="flex items-center gap-2">
+                    <i class="ph-fill ph-books text-xl text-emerald-800 dark:text-gold-400"></i>
+                    <h2 class="font-bold text-emerald-950 dark:text-parchment-50 text-sm uppercase tracking-wider">Daftar Bab (الأبواب)</h2>
+                </div>
+                <button id="closeSidebarBtn" class="lg:hidden p-1.5 rounded-lg text-slate-500 hover:bg-parchment-300 dark:hover:bg-emerald-800">
+                    <i class="ph ph-x text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Kartu Pelacak Progres Hafalan -->
+            <div class="p-4 bg-gradient-to-br from-emerald-900 to-emerald-950 text-white m-3 rounded-xl border border-gold-500/40 shadow-sm">
+                <div class="flex items-center justify-between text-xs mb-1.5">
+                    <span class="text-emerald-200 font-medium">Progres Hafalan Santri</span>
+                    <span id="progressPercent" class="font-bold text-gold-400">0%</span>
+                </div>
+                <div class="w-full h-2 bg-emerald-950 rounded-full overflow-hidden border border-emerald-700/60">
+                    <div id="progressBar" class="h-full bg-gradient-to-r from-gold-500 to-amber-300 transition-all duration-500" style="width: 0%"></div>
+                </div>
+                <p id="progressLabel" class="text-[11px] text-emerald-300/90 mt-2">
+                    Tandai bait dengan ikon pita untuk mencatat hafalan Anda.
+                </p>
+            </div>
+
+            <!-- Daftar Navigasi Bab -->
+            <nav id="chapterList" class="flex-1 overflow-y-auto px-3 pb-4 space-y-1">
+                <!-- Diisi secara dinamis oleh JavaScript -->
+            </nav>
+        </aside>
+
+        <!-- AREA KONTEN BAIT -->
+        <main class="flex-1 min-w-0 flex flex-col gap-5">
+            
+            <!-- Kotak Pencarian & Filter Cepat -->
+            <section class="bg-white/90 dark:bg-[#0d1f1a]/90 backdrop-blur-xs p-4 rounded-2xl border border-parchment-300 dark:border-emerald-800/80 shadow-xs">
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <div class="relative flex-1">
+                        <i class="ph ph-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400 text-lg"></i>
+                        <input 
+                            type="text" 
+                            id="searchInput" 
+                            placeholder="Cari nomor bait (mis. 8, 1002), teks Arab, terjemahan, atau istilah nahwu (kalam, mubtada, fa'il)..." 
+                            class="w-full pl-10 pr-10 py-2.5 rounded-xl bg-parchment-50 dark:bg-emerald-950/80 border border-parchment-300 dark:border-emerald-700/80 text-sm focus:outline-none focus:ring-2 focus:ring-gold-500/60 focus:border-gold-500 transition placeholder:text-slate-400"
+                        >
+                        <button id="clearSearchBtn" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 dark:hover:text-slate-200">
+                            <i class="ph-fill ph-x-circle text-lg"></i>
+                        </button>
+                    </div>
+                    
+                    <!-- Filter Cepat: Semua vs Hafalan Saya -->
+                    <div class="flex items-center gap-2">
+                        <button id="filterAllBtn" class="flex-1 sm:flex-none px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-emerald-800 text-white shadow-xs transition">
+                            Semua Bait
+                        </button>
+                        <button id="filterSavedBtn" class="flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-parchment-200/80 dark:bg-emerald-950 text-emerald-900 dark:text-gold-400 border border-parchment-300 dark:border-emerald-800 hover:bg-parchment-300/70 transition">
+                            <i class="ph-fill ph-bookmark-simple text-gold-600 dark:text-gold-400"></i>
+                            <span>Hafalan Saya (<span id="savedFilterCount">0</span>)</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Info Bab Aktif & Hasil Filter -->
+                <div class="mt-3 pt-3 border-t border-parchment-200 dark:border-emerald-800/60 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-600 dark:text-slate-300">
+                    <div class="flex items-center gap-2">
+                        <span class="px-2.5 py-1 rounded-lg bg-emerald-900/10 dark:bg-emerald-800/40 text-emerald-900 dark:text-emerald-200 font-semibold" id="activeChapterBadge">
+                            Semua Bab Pilihan
+                        </span>
+                        <span class="font-arabic text-base text-gold-600 dark:text-gold-400 font-bold" id="activeChapterArabic">
+                            جَمِيعُ الأَبْوَابِ
+                        </span>
+                    </div>
+                    <div>
+                        Menampilkan <strong id="visibleCount" class="text-emerald-800 dark:text-gold-400">0</strong> bait nadhom
+                    </div>
+                </div>
+            </section>
+
+            <!-- Daftar Kartu Bait Nadhom -->
+            <div id="baitContainer" class="space-y-4">
+                <!-- Kartu Bait dirender oleh JavaScript -->
+            </div>
+
+            <!-- State Kosong jika pencarian tidak ditemukan -->
+            <div id="emptyState" class="hidden bg-white/80 dark:bg-[#0d1f1a]/80 rounded-2xl border border-parchment-300 dark:border-emerald-800 p-10 text-center">
+                <div class="w-16 h-16 mx-auto mb-3 rounded-2xl bg-parchment-200 dark:bg-emerald-900/60 flex items-center justify-center text-gold-600 dark:text-gold-400">
+                    <i class="ph ph-book-open text-3xl"></i>
+                </div>
+                <h3 class="text-base font-bold text-slate-800 dark:text-slate-100">Bait Tidak Ditemukan</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mt-1 max-w-md mx-auto">
+                    Tidak ada bait yang sesuai dengan kata kunci pencarian atau filter hafalan Anda saat ini.
+                </p>
+                <button id="resetFilterBtn" class="mt-4 px-4 py-2 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs font-semibold transition">
+                    Tampilkan Semua Bait
+                </button>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="mt-10 border-t border-parchment-300 dark:border-emerald-900 bg-parchment-100/80 dark:bg-[#060f0c] py-6 px-4 text-center text-xs text-slate-600 dark:text-slate-400">
+        <div class="max-w-4xl mx-auto space-y-1.5">
+            <p class="font-arabic text-lg text-emerald-900 dark:text-gold-400">
+                وَمَا بِجَمْعِهِ عُنِيتُ قَدْ كَمَلْ ۞ نَظْمًا عَلَى جُلِّ الْمُهِمَّاتِ اشْتَمَلْ
+            </p>
+            <p class="font-medium text-slate-700 dark:text-slate-300">
+                Kitab Al-Khulashah (Alfiyah Ibnu Malik) — Karya Imam Jamaluddin Abu Abdillah Muhammad bin Abdillah bin Malik Al-Andalusi (w. 672 H)
+            </p>
+            <p class="text-[11px] opacity-80">
+                Syarah ringkas disarikan dari <em>Syarah Ibnu 'Aqil 'ala Alfiyyah Ibni Malik</em> untuk kemudahan muthala'ah santri dan pelajar ilmu Nahwu-Sharaf.
+            </p>
+        </div>
+    </footer>
+
+    <!-- MODAL MODE KUIS / MURAJA'AH HAFALAN -->
+    <div id="quizModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-black/70 backdrop-blur-xs">
+        <div class="bg-parchment-50 dark:bg-[#0d1f1a] border-2 border-gold-500/60 rounded-2xl max-w-2xl w-full shadow-2xl overflow-hidden flex flex-col max-h-[90vh]">
+            
+            <!-- Header Modal Kuis -->
+            <div class="bg-emerald-900 dark:bg-emerald-950 text-white px-5 py-4 flex items-center justify-between border-b border-gold-500/40">
+                <div class="flex items-center gap-2.5">
+                    <div class="w-9 h-9 rounded-xl bg-gold-500/20 border border-gold-400/50 flex items-center justify-center text-gold-400">
+                        <i class="ph-fill ph-exam text-xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-base">Mode Muraja'ah & Kuis Alfiyah</h3>
+                        <p class="text-xs text-emerald-200">Uji hafalan lanjutan bait dan pemahaman bab nahwu</p>
+                    </div>
+                </div>
+                <button id="closeQuizBtn" class="p-1.5 rounded-lg text-emerald-200 hover:bg-emerald-800 hover:text-white transition">
+                    <i class="ph ph-x text-xl"></i>
+                </button>
+            </div>
+
+            <!-- Konten Kuis -->
+            <div class="p-5 sm:p-6 overflow-y-auto space-y-5 flex-1">
+                <!-- Bar Skor & Tipe Soal -->
+                <div class="flex flex-wrap items-center justify-between gap-2 bg-parchment-200/70 dark:bg-emerald-950/80 px-4 py-2.5 rounded-xl border border-parchment-300 dark:border-emerald-800 text-xs">
+                    <div class="flex items-center gap-3">
+                        <span class="font-semibold text-emerald-900 dark:text-emerald-200">Soal ke-<span id="quizNumber">1</span></span>
+                        <span class="px-2 py-0.5 rounded bg-gold-500/20 text-gold-700 dark:text-gold-400 font-medium" id="quizTypeBadge">Lengkapi Bait</span>
+                    </div>
+                    <div class="flex items-center gap-3 font-bold">
+                        <span class="text-emerald-700 dark:text-emerald-400">Benar: <span id="quizScoreCorrect">0</span></span>
+                        <span class="text-rose-600 dark:text-rose-400">Salah: <span id="quizScoreWrong">0</span></span>
+                    </div>
+                </div>
+
+                <!-- Pertanyaan -->
+                <div class="bg-white dark:bg-emerald-950/60 p-5 rounded-2xl border border-parchment-300 dark:border-emerald-800 text-center space-y-3">
+                    <p id="quizPrompt" class="text-xs sm:text-sm font-medium text-slate-600 dark:text-slate-300">
+                        Lanjutkan syathr kedua ('Ajuz) dari bait berikut ini:
+                    </p>
+                    <div id="quizArabicQuestion" class="font-arabic text-2xl sm:text-3xl text-emerald-950 dark:text-gold-300 leading-relaxed py-2" dir="rtl">
+                        <!-- Teks Arab Soal -->
+                    </div>
+                    <p id="quizHint" class="text-xs text-slate-500 dark:text-slate-400 italic">
+                        <!-- Petunjuk nomor bait -->
+                    </p>
+                </div>
+
+                <!-- Pilihan Jawaban -->
+                <div id="quizOptions" class="grid grid-cols-1 gap-2.5">
+                    <!-- Opsi dirender JS -->
+                </div>
+
+                <!-- Umpan Balik Jawaban -->
+                <div id="quizFeedback" class="hidden p-4 rounded-xl text-sm border">
+                    <!-- Pesan benar/salah + terjemahan bait -->
+                </div>
+            </div>
+
+            <!-- Footer Modal Kuis -->
+            <div class="px-5 py-3.5 bg-parchment-100 dark:bg-emerald-950/90 border-t border-parchment-300 dark:border-emerald-800 flex items-center justify-between">
+                <button id="resetQuizScoreBtn" class="text-xs text-slate-500 hover:text-slate-700 dark:text-slate-400 dark:hover:text-slate-200 underline">
+                    Reset Skor
+                </button>
+                <button id="nextQuizBtn" class="px-5 py-2.5 rounded-xl bg-emerald-800 hover:bg-emerald-700 text-white text-xs sm:text-sm font-semibold flex items-center gap-1.5 shadow-sm transition">
+                    <span>Soal Berikutnya</span>
+                    <i class="ph-bold ph-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST NOTIFIKASI -->
+    <div id="toastNotification" class="fixed bottom-5 right-5 z-50 transform translate-y-20 opacity-0 pointer-events-none transition-all duration-300">
+        <div class="bg-emerald-950 text-white px-4 py-3 rounded-xl shadow-xl border border-gold-500/60 flex items-center gap-2.5 text-xs sm:text-sm">
+            <i id="toastIcon" class="ph-fill ph-check-circle text-gold-400 text-lg"></i>
+            <span id="toastMessage">Berhasil disalin ke papan klip!</span>
+        </div>
+    </div>
+
+    <!-- SCRIPT UTAMA: DATA BAIT ALFIYAH & LOGIKA INTERAKTIF -->
+    <script>
+        /**
+         * DATABASE BAIT KITAB ALFIYAH IBNU MALIK
+         * Mencakup bab-bab fundamental dari Muqaddimah hingga Khatimah
+         * Lengkap dengan Shadr (syathr 1), 'Ajuz (syathr 2), Terjemahan, dan Syarah Ringkas Ibnu 'Aqil.
+         */
+        const CHAPTERS = [
+            { id: 'all', title: 'Semua Bab Pilihan', arabic: 'جَمِيعُ الأَبْوَابِ', range: '42 Bait Inti' },
+            { id: 'muqaddimah', title: 'Muqaddimah', arabic: 'الْمُقَدِّمَةُ', range: 'Bait 1 - 7' },
+            { id: 'kalam', title: "Al-Kalam wa ma Yata'allafu minhu", arabic: 'الْكَلاَمُ وَمَا يَتَأَلَّفُ مِنْهُ', range: 'Bait 8 - 14' },
+            { id: 'murab', title: "Al-Mu'rab wal Mabni", arabic: 'الْمُعْرَبُ وَالْمَبْنِيُّ', range: 'Bait 15 - 51' },
+            { id: 'nakirah', title: "An-Nakirah wal Ma'rifah", arabic: 'النَّكِرَةُ وَالْمَعْرِفَةُ', range: 'Bait 52 - 71' },
+            { id: 'alam', title: "Al-'Alam (Nama Diri)", arabic: 'الْعَلَمُ', range: 'Bait 72 - 81' },
+            { id: 'isyarah_maushul', title: 'Ism al-Isyarah & Al-Maushul', arabic: 'اسْمُ الإِشَارَةِ وَالْمَوْصُولُ', range: 'Bait 82 - 109' },
+            { id: 'mubtada', title: "Al-Mubtada' wal Khabar", arabic: 'الْمُبْتَدَأُ وَالْخَبَرُ', range: 'Bait 113 - 145' },
+            { id: 'nawasikh', title: "Kana & Inna wa Akhawatuha", arabic: 'كَانَ وَإِنَّ وَأَخَوَاتُهُمَا', range: 'Bait 146 - 196' },
+            { id: 'fail', title: "Al-Fa'il & Na'ib al-Fa'il", arabic: 'الْفَاعِلُ وَنَائِبُ الْفَاعِلِ', range: 'Bait 225 - 266' },
+            { id: 'khatimah', title: 'Khatimah (Penutup)', arabic: 'الْخَاتِمَةُ', range: 'Bait 1000 - 1002' }
+        ];
+
+        const BAITS = [
+            // === BAB 1: MUQADDIMAH (1-7) ===
+            {
+                number: 1,
+                chapterId: 'muqaddimah',
+                shadr: "قَالَ مُحَمَّدٌ هُوَ ابْنُ مَالِكِ",
+                ajuz: "أَحْمَدُ رَبِّي اللَّهَ خَيْرَ مَالِكِ",
+                translation: "Telah berkata Muhammad —beliau adalah Ibnu Malik—: Aku memuji Tuhanku, Allah, sebaik-baik Dzat Yang Memiliki.",
+                syarah: "Nazhim (Imam Ibnu Malik) memulai kitabnya dengan memperkenalkan diri serta memuji Allah (hamdalah) dengan sifat Rububiyyah dan kemahakuasaan-Nya sebagai Pemilik mutlak alam semesta, meneladani Al-Qur'an dan hadits Nabi."
+            },
+            {
+                number: 2,
+                chapterId: 'muqaddimah',
+                shadr: "مُصَلِّيًا عَلَى النَّبِيِّ الْمُصْطَفَى",
+                ajuz: "وَآلِهِ الْمُسْتَكْمِلِينَ الشَّرَفَا",
+                translation: "Seraya bershalawat atas Nabi yang terpilih (Muhammad ﷺ), dan atas keluarga beliau yang mencapai puncak kemuliaan.",
+                syarah: "Setelah hamdalah, beliau bershalawat kepada Rasulullah ﷺ (Al-Musthafa) dan keluarga beliau yang suci. Lafaz 'Asy-Syarafa' dibaca nashab sebagai maf'ul bih dari isim fa'il 'Al-Mustakmilin'."
+            },
+            {
+                number: 3,
+                chapterId: 'muqaddimah',
+                shadr: "وَأَسْتَعِينُ اللَّهَ فِي أَلْفِيَّهْ",
+                ajuz: "مَقَاصِدُ النَّحْوِ بِهَا مَحْوِيَّهْ",
+                translation: "Dan aku memohon pertolongan kepada Allah dalam menyusun nadhom Alfiyah (seribu bait), yang mana seluruh tujuan inti ilmu nahwu terkandung di dalamnya.",
+                syarah: "Ibnu Malik memohon pertolongan Allah untuk merampungkan nadhom berjumlah sekitar 1.000 bait (tepatnya 1.002 bait) yang merangkum inti sari ilmu Nahwu dan Sharaf."
+            },
+            {
+                number: 4,
+                chapterId: 'muqaddimah',
+                shadr: "تُقَرِّبُ الأَقْصَى بِلَفْظٍ مُوجَزِ",
+                ajuz: "وَتَبْسُطُ الْبَذْلَ بِوَعْدٍ مُنْجَزِ",
+                translation: "Ia mendekatkan kaidah yang jauh (sulit) dengan lafaz yang ringkas, dan meluaskan pemberian faedah ilmu dengan janji yang ditepati.",
+                syarah: "Keistimewaan Alfiyah adalah bahasanya padat (ijaz) namun mudah dipahami, sehingga kaidah nahwu yang rumit terasa dekat dan kaya manfaat."
+            },
+            {
+                number: 5,
+                chapterId: 'muqaddimah',
+                shadr: "وَتَقْتَضِي رِضًا بِغَيْرِ سُخْطِ",
+                ajuz: "فَائِقَةً أَلْفِيَّةَ ابْنِ مُعْطِي",
+                translation: "Dan nadhom ini menghendaki keridhaan tanpa kemarahan, seraya mengungguli Alfiyah karya Ibnu Mu'thi.",
+                syarah: "Imam Ibnu Mu'thi (w. 628 H) lebih dahulu menyusun Alfiyah dalam ilmu nahwu. Ibnu Malik menyatakan karyanya lebih unggul karena lebih ringkas dan lengkap, lalu beliau memuji Ibnu Mu'thi pada bait berikutnya sebagai bentuk adab."
+            },
+            {
+                number: 6,
+                chapterId: 'muqaddimah',
+                shadr: "وَهُوَ بِسَبْقٍ حَائِزٌ تَفْضِيلاَ",
+                ajuz: "مُسْتَوْجِبٌ ثَنَائِيَ الْجَمِيلاَ",
+                translation: "Beliau (Ibnu Mu'thi) dengan keutamaannya sebagai perintis berhak meraih keutamaan, dan berhak mendapatkan pujianku yang indah.",
+                syarah: "Pelajaran adab ilmiah yang agung dari Ibnu Malik: meskipun karyanya lebih sistematis, beliau tetap memuliakan ulama pendahulunya (Ibnu Mu'thi) sebagai perintis nadhom Alfiyah."
+            },
+            {
+                number: 7,
+                chapterId: 'muqaddimah',
+                shadr: "وَاللَّهُ يَقْضِي بِهِبَاتٍ وَافِرَهْ",
+                ajuz: "لِي وَلَهُ فِي دَرَجَاتِ الآخِرَهْ",
+                translation: "Dan semoga Allah menetapkan anugerah-anugerah yang melimpah, untukku dan untuk beliau pada derajat-derajat di akhirat.",
+                syarah: "Penutup Muqaddimah berupa doa tulus agar Allah melimpahkan derajat mulia di akhirat bagi beliau sendiri maupun bagi Imam Ibnu Mu'thi."
+            },
+
+            // === BAB 2: AL-KALAM WA MA YATA'ALLAFU MINHU (8-14) ===
+            {
+                number: 8,
+                chapterId: 'kalam',
+                shadr: "كَلاَمُنَا لَفْظٌ مُفِيدٌ كَاسْتَقِمْ",
+                ajuz: "وَاسْمٌ وَفِعْلٌ ثُمَّ حَرْفٌ الْكَلِمْ",
+                translation: "Kalam menurut kami (ahli nahwu) adalah lafaz yang memberi faedah sempurna seperti 'Istaqim' (istiqamahlah kamu). Sedangkan Kalim terbagi menjadi Isim, Fi'il, kemudian Huruf.",
+                syarah: "Syarat Kalam ada 4: (1) Lafaz (suara yang mengandung huruf hijaiyah), (2) Mufid (memberi pemahaman utuh sehingga pendengar tidak menunggu kelanjutan), (3) Murakkab (tersusun minimal 2 kata, seperti 'Istaqim' yang mengandung dhamir anta), dan (4) Qashd/Wadh'i (disengaja dalam bahasa Arab). Adapun Kalim adalah susunan 3 kata atau lebih, baik mufid maupun tidak."
+            },
+            {
+                number: 9,
+                chapterId: 'kalam',
+                shadr: "وَاحِدُهُ كَلِمَةٌ وَالْقَوْلُ عَمّ",
+                ajuz: "وَكِلْمَةٌ بِهَا كَلاَمٌ قَدْ يُؤَمّ",
+                translation: "Bentuk tunggal dari kalim adalah kalimah (kata), sedangkan 'Qaul' bersifat umum (mencakup semua). Terkadang dengan lafaz 'kalimah' dimaksudkan sebagai kalam (kalimat lengkap).",
+                syarah: "Satu kata disebut Kalimah (memiliki tiga dialek: kalimah, kilmah, kalmah). 'Qaul' mencakup kalam, kalim, maupun kalimah. Terkadang kata 'kalimah' dipakai untuk makna kalam, seperti ungkapan 'Kalimatut Tauhid' untuk La ilaha illallah."
+            },
+            {
+                number: 10,
+                chapterId: 'kalam',
+                shadr: "بِالْجَرِّ وَالتَّنْوِينِ وَالنِّدَا وَأَلْ",
+                ajuz: "وَمُسْنَدٍ لِلاسْمِ تَمْيِيزٌ حَصَلْ",
+                translation: "Dengan (dapat menerima) jar, tanwin, nida' (panggilan), alif-lam (Al), dan musnad (disandari hukum), maka tanda pembeda bagi Isim telah diperoleh.",
+                syarah: "Tanda-tanda Isim ada 5: (1) Jar (baik karena huruf jar, idhafah, atau tabi'), (2) Tanwin, (3) Nida' (seperti: Ya Zaid), (4) Al (seperti: Ar-Rajul), dan (5) Isnad ilaihi (menjadi subjek/mubtada/fa'il, seperti 'Ana' pada 'Ana mu'min')."
+            },
+            {
+                number: 11,
+                chapterId: 'kalam',
+                shadr: "بِتَا فَعَلْتَ وَأَتَتْ وَيَا افْعَلِي",
+                ajuz: "وَنُونِ أَقْبِلَنَّ فِعْلٌ يَنْجَلِي",
+                translation: "Dengan ta' pada 'fa'alta' (ta' fa'il), ta' pada 'atat' (ta' ta'nits sakinah), ya' pada 'if'ali' (ya' mukhathabah), dan nun pada 'aqbilanna' (nun taukid), maka Fi'il menjadi jelas.",
+                syarah: "Tanda khusus kalimat Fi'il ada 4: (1) Ta' fa'il (تُ / تَ / تِ), (2) Ta' ta'nits sukun (تْ), (3) Ya' fa'il mukhathabah (ي), dan (4) Nun taukid baik tsaqilah (نَّ) maupun khafifah (نْ)."
+            },
+            {
+                number: 12,
+                chapterId: 'kalam',
+                shadr: "سِوَاهُمَا الْحَرْفُ كَهَلْ وَفِي وَلَمْ",
+                ajuz: "فِعْلٌ مُضَارِعٌ يَلِي لَمْ كَيَشَمْ",
+                translation: "Selain keduanya (yang tidak menerima tanda isim maupun fi'il) adalah Huruf, seperti 'hal', 'fi', dan 'lam'. Fi'il Mudhari' adalah fi'il yang dapat jatuh setelah 'lam' seperti 'lam yasyam'.",
+                syarah: "Ciri kalimat Huruf adalah 'adamiyyah (tidak menerima tanda isim dan tanda fi'il). Contohnya 'hal' (musytarak), 'fi' (khusus isim), dan 'lam' (khusus fi'il mudhari')."
+            },
+            {
+                number: 13,
+                chapterId: 'kalam',
+                shadr: "وَمَاضِيَ الأَفْعَالِ بِالتَّا مِزْ وَسِمْ",
+                ajuz: "بِالنُّونِ فِعْلَ الأَمْرِ إِنْ أَمْرٌ فُهِمْ",
+                translation: "Bedakanlah fi'il madhi dengan huruf ta' (ta' fa'il & ta' ta'nits), dan tandailah fi'il amar dengan nun taukid jika makna perintah dapat dipahami darinya.",
+                syarah: "Fi'il Madhi ditandai dengan diterimanya ta' fa'il dan ta' ta'nits sakinah. Fi'il Amar memiliki dua syarat sekaligus: menunjukkan makna perintah (thalab) dan dapat menerima nun taukid (seperti: Idhribanna)."
+            },
+            {
+                number: 14,
+                chapterId: 'kalam',
+                shadr: "وَالأَمْرُ إِنْ لَمْ يَكُ لِلنُّونِ مَحَلّ",
+                ajuz: "فِيهِ هُوَ اسْمٌ نَحْوُ صَهْ وَحَيَّهَلْ",
+                translation: "Adapun kata perintah jika tidak bisa ditempati nun taukid padanya, maka ia adalah Isim (Isim Fi'il Amar), seperti 'Shah' (diamlah) dan 'Hayyahal' (kemarilah).",
+                syarah: "Jika suatu lafaz bermakna perintah namun menolak nun taukid (tidak boleh berkata 'Shahanna'), maka lafaz tersebut bukan Fi'il Amar melainkan Isim Fi'il Amar."
+            },
+
+            // === BAB 3: AL-MU'RAB WAL MABNI (15-51) ===
+            {
+                number: 15,
+                chapterId: 'murab',
+                shadr: "وَالاِسْمُ مِنْهُ مُعْرَبٌ وَمَبْنِي",
+                ajuz: "لِشَبَهٍ مِنَ الْحُرُوفِ مُدْنِي",
+                translation: "Kalimat Isim itu ada yang Mu'rab (berubah akhirnya) dan ada yang Mabni (tetap akhirnya), karena adanya keserupaan yang mendekatkan dengan kalimat Huruf.",
+                syarah: "Hukum asal Isim adalah Mu'rab. Isim menjadi Mabni hanya apabila menyerupai kalimat Huruf dalam salah satu dari empat sisi keserupaan (syabah wadh'i, ma'nawi, isti'mali, atau iftiqari)."
+            },
+            {
+                number: 16,
+                chapterId: 'murab',
+                shadr: "كَالشَّبَهِ الْوَضْعِيِّ فِي اسْمَيْ جِئْتَنَا",
+                ajuz: "وَالْمَعْنَوِيِّ فِي مَتَى وَفِي هُنَا",
+                translation: "Seperti keserupaan wadh'i (bentuk susunan huruf) pada dua isim dalam kata 'ji'tana' (ta' dan na), dan keserupaan ma'nawi pada kata 'mata' (kapan) dan 'huna' (di sini).",
+                syarah: "1) Syabah Wadh'i: isim yang terdiri dari 1 atau 2 huruf saja (seperti dhamir تَ dan نَا) sehingga menyerupai huruf. 2) Syabah Ma'nawi: isim yang mengandung makna huruf, seperti 'mata' (istifham/syarat) dan 'huna' (isyarah)."
+            },
+            {
+                number: 17,
+                chapterId: 'murab',
+                shadr: "وَكَنِيَابَةٍ عَنِ الْفِعْلِ بِلاَ",
+                ajuz: "تَأَثُّرٍ وَكَافْتِقَارٍ أُصِّلاَ",
+                translation: "Dan seperti menggantikan posisi fi'il tanpa dipengaruhi amil (Isim Fi'il), serta seperti kebutuhan yang mendasar kepada jumlah setelahnya (Isim Maushul).",
+                syarah: "3) Syabah Isti'mali/Niyabi: seperti Isim Fi'il (contoh: 'Darak' = tangkaplah) yang beramal namun tidak dipengaruhi amil. 4) Syabah Iftiqari: seperti Isim Maushul ('Alladzi') yang selalu butuh shilah untuk menyempurnakan maknanya."
+            },
+            {
+                number: 18,
+                chapterId: 'murab',
+                shadr: "وَمُعْرَبُ الأَسْمَاءِ مَا قَدْ سَلِمَا",
+                ajuz: "مِنْ شَبَهِ الْحَرْفِ كَأَرْضٍ وَسُمَا",
+                translation: "Isim yang Mu'rab adalah isim yang selamat dari keserupaan dengan huruf, seperti kata 'Ardh' (bumi) dan 'Suma' (nama).",
+                syarah: "Setiap isim yang tidak memiliki empat keserupaan dengan huruf hukumnya Mu'rab, baik shahih akhir seperti 'Ardhun' maupun mu'tal akhir seperti 'Suma' (dialek lain dari Ismun)."
+            },
+            {
+                number: 19,
+                chapterId: 'murab',
+                shadr: "وَفِعْلُ أَمْرٍ وَمُضِيٍّ بُنِيَا",
+                ajuz: "وَأَعْرَبُوا مُضَارِعًا إِنْ عَرِيَا",
+                translation: "Fi'il Amar dan Fi'il Madhi keduanya dimabnikan. Dan ulama nahwu memu'rabkan Fi'il Mudhari' apabila ia sunyi (terbebas)...",
+                syarah: "Hukum asal Fi'il adalah Mabni. Fi'il Madhi mabni fathah (kecuali bertemu wawu jama' atau dhamir rafa' mutaharrik), Fi'il Amar mabni atas tanda jazm mudhari'-nya. Fi'il Mudhari' menjadi Mu'rab jika tidak bersambung langsung dengan dua nun pada bait berikutnya."
+            },
+            {
+                number: 20,
+                chapterId: 'murab',
+                shadr: "مِنْ نُونِ تَوْكِيدٍ مُبَاشِرٍ وَمِنْ",
+                ajuz: "نُونِ إِنَاثٍ كَيَرُعْنَ مَنْ فُتِنْ",
+                translation: "...dari nun taukid yang bersambung langsung dan dari nun inats (jamak perempuan), seperti lafaz 'yaru'na man futin' (mereka para wanita menakutkan orang yang tergoda).",
+                syarah: "Fi'il Mudhari' dimabnikan dalam dua kondisi: (1) Mabni fathah jika bertemu langsung dengan Nun Taukid (يَذْهَبَنَّ), dan (2) Mabni sukun jika bertemu Nun Inats (يَرُعْنَ)."
+            },
+            {
+                number: 21,
+                chapterId: 'murab',
+                shadr: "وَكُلُّ حَرْفٍ مُسْتَحِقٌّ لِلْبِنَا",
+                ajuz: "وَالأَصْلُ فِي الْمَبْنِيِّ أَنْ يُسَكَّنَا",
+                translation: "Setiap kalimat Huruf berhak untuk dimabnikan. Dan hukum asal pada kalimat yang mabni adalah disukunkan.",
+                syarah: "Seluruh huruf tanpa terkecuali hukumnya Mabni karena tidak membutuhkan i'rab untuk membedakan makna. Hukum asal bina adalah sukun karena sukun adalah harakat paling ringan."
+            },
+            {
+                number: 23,
+                chapterId: 'murab',
+                shadr: "وَالرَّفْعَ وَالنَّصْبَ اجْعَلَنْ إِعْرَابَا",
+                ajuz: "لاِسْمٍ وَفِعْلٍ نَحْوُ لَنْ أَهَابَا",
+                translation: "Jadikanlah Rafa' dan Nashab sebagai i'rab bagi Isim dan Fi'il (Mudhari'), seperti contoh 'Lan ahaba' (Aku tidak akan takut).",
+                syarah: "Jenis I'rab ada 4: Rafa', Nashab, Jar (Khafadh), dan Jazm. Rafa' dan Nashab dimiliki bersama oleh Isim dan Fi'il Mudhari'."
+            },
+            {
+                number: 24,
+                chapterId: 'murab',
+                shadr: "وَالاِسْمُ قَدْ خُصِّصَ بِالْجَرِّ كَمَا",
+                ajuz: "قَدْ خُصِّصَ الْفِعْلُ بِأَنْ يَنْجَزِمَا",
+                translation: "Kalimat Isim telah dikhususkan dengan i'rab Jar, sebagaimana kalimat Fi'il (Mudhari') telah dikhususkan dengan i'rab Jazm.",
+                syarah: "I'rab Jar hanya masuk pada Isim (tidak ada fi'il yang di-jar-kan), sedangkan I'rab Jazm hanya masuk pada Fi'il Mudhari' (tidak ada isim yang di-jazm-kan)."
+            },
+            {
+                number: 25,
+                chapterId: 'murab',
+                shadr: "فَارْفَعْ بِضَمٍّ وَانْصِبَنْ فَتْحًا وَجُرّ",
+                ajuz: "كَسْرًا كَذِكْرُ اللَّهِ عَبْدَهُ يَسُرّ",
+                translation: "Maka rafa'-kanlah dengan dhammah, nashab-kanlah dengan fathah, dan jar-kanlah dengan kasrah, seperti contoh 'Dzikrullahi 'abdahu yasurr' (Mengingat Allah menggembirakan hamba-Nya).",
+                syarah: "Tanda i'rab asli ada 4: Dhammah untuk Rafa', Fathah untuk Nashab, Kasrah untuk Jar, dan Sukun untuk Jazm (pada bait ke-26). Contoh dalam bait: 'Dzikru' (marfu' dhammah), 'Allahi' (majrur kasrah), ''abdahu' (manshub fathah)."
+            },
+
+            // === BAB 4: AN-NAKIRAH WAL MA'RIFAH (52-71) ===
+            {
+                number: 52,
+                chapterId: 'nakirah',
+                shadr: "نَكِرَةٌ قَابِلُ أَلْ مُؤَثِّرَا",
+                ajuz: "أَوْ وَاقِعٌ مَوْقِعَ مَا قَدْ ذُكِرَا",
+                translation: "Isim Nakirah adalah isim yang dapat menerima 'Al' yang memberi efek kemakrifatan, atau isim yang menempati posisi lafaz yang dapat menerima 'Al' tersebut.",
+                syarah: "Definisi Isim Nakirah: (1) Bisa dimasuki 'Al' dan berubah menjadi makrifat (seperti 'Rajulun' -> 'Ar-Rajulu'), atau (2) Tidak bisa dimasuki 'Al' secara langsung tetapi semakna dengan kata yang bisa dimasuki 'Al', seperti 'Dzu' (yang memiliki) yang semakna dengan 'Shahib' (الصاحب)."
+            },
+            {
+                number: 53,
+                chapterId: 'nakirah',
+                shadr: "وَغَيْرُهُ مَعْرِفَةٌ كَهُمْ وَذِي",
+                ajuz: "وَهِنْدَ وَابْنِي وَالْغُلاَمِ وَالَّذِي",
+                translation: "Selain isim nakirah adalah Isim Ma'rifat, seperti 'hum' (Dhamir), 'dzi' (Isim Isyarah), 'Hindun' ('Alam), 'ibni' (Mudhaf ilal Ma'rifah), 'al-ghulam' (Mu'arraf bi Al), dan 'alladzi' (Isim Maushul).",
+                syarah: "Bait ini merangkum 6 macam Isim Ma'rifat secara berurutan dari yang paling makrifat (setelah lafaz Jalalah): (1) Dhamir (هُمْ), (2) Isim Isyarah (ذِي), (3) 'Alam/Nama (هِنْدَ), (4) Mudhaf pada salah satu ma'rifat (ابْنِي), (5) Ber-Al (الْغُلاَمِ), dan (6) Isim Maushul (الَّذِي)."
+            },
+            {
+                number: 54,
+                chapterId: 'nakirah',
+                shadr: "فَمَا لِذِي غَيْبَةٍ أَوْ حُضُورِ",
+                ajuz: "كَأَنْتَ وَهُوَ سَمِّ بِالضَّمِيرِ",
+                translation: "Maka setiap isim yang menunjukkan makna ghaib (orang ketiga) atau hadir (orang pertama/kedua), seperti 'anta' dan 'huwa', namakanlah dengan Dhamir (kata ganti).",
+                syarah: "Dhamir adalah isim jamid yang menunjukkan mutakallim (أنا، نحن), mukhathab (أنت، أنتما...), atau ghaib (هو، هي...)."
+            },
+
+            // === BAB 5: AL-'ALAM (72-81) ===
+            {
+                number: 72,
+                chapterId: 'alam',
+                shadr: "اِسْمٌ يُعَيِّنُ الْمُسَمَّى مُطْلَقَا",
+                ajuz: "عَلَمُهُ كَجَعْفَرٍ وَخِرْنِقَا",
+                translation: "Isim yang menentukan sesuatu yang dinamai secara mutlak (tanpa butuh qarinah/penunjuk luar) adalah 'Alam-nya, seperti nama 'Ja'far' dan 'Khirniq'.",
+                syarah: "Isim 'Alam (nama diri) menunjuk langsung pada individu tertentu tanpa membutuhkan qarinah mutakallim/mukhathab (seperti dhamir), isyarat tangan (seperti isim isyarah), atau shilah (seperti maushul). Contoh: Ja'far (nama laki-laki), Khirniq (nama penyair perempuan), Qaran (nama kabilah), 'Adn (nama tempat)."
+            },
+            {
+                number: 74,
+                chapterId: 'alam',
+                shadr: "وَاسْمًا أَتَى وَكُنْيَةً وَلَقَبَا",
+                ajuz: "وَأَخِّرَنْ ذَا إِنْ سِوَاهُ صَحِبَا",
+                translation: "Isim 'Alam datang dalam bentuk Isim (nama asli), Kunyah (berawalan Abu/Ummu), dan Laqab (gelar). Dan akhirkanlah laqab ini apabila ia bersanding dengan selainnya (isim).",
+                syarah: "Pembagian 'Alam: (1) Isim: Zaid, Umar; (2) Kunyah: Abu Bakr, Ummu Kultsum; (3) Laqab: gelar pujian/celaan seperti Zainul 'Abidin, Al-Mutanabbi. Jika Isim dan Laqab berkumpul, wajib mendahulukan Isim dan mengakhirkan Laqab (contoh: 'Umar Al-Faruq, bukan Al-Faruq 'Umar)."
+            },
+
+            // === BAB 6: ISM AL-ISYARAH & AL-MAUSHUL (82-109) ===
+            {
+                number: 82,
+                chapterId: 'isyarah_maushul',
+                shadr: "بِذَا لِمُفْرَدٍ مُذَكَّرٍ أَشِرْ",
+                ajuz: "بِذِي وَذِهْ تِي تَا عَلَى الأُنْثَى اقْتَصِرْ",
+                translation: "Dengan lafaz 'Dza' berilah isyarat untuk mufrad mudzakkar (tunggal laki-laki). Dengan 'Dzi', 'Dzih', 'Ti', dan 'Ta' cukupkanlah untuk mufrad mu'annats (tunggal perempuan).",
+                syarah: "Kata tunjuk (Isim Isyarah) jarak dekat: untuk tunggal laki-laki memakai ذَا (sering ditambah ha' tanbih menjadi هٰذَا), sedangkan untuk tunggal perempuan menggunakan ذِي، ذِهْ، تِي، تَا (seperti هٰذِهِ)."
+            },
+            {
+                number: 88,
+                chapterId: 'isyarah_maushul',
+                shadr: "مَوْصُولُ الاَسْمَاءِ الَّذِي الأُنْثَى الَّتِي",
+                ajuz: "وَالْيَا إِذَا مَا ثُنِّيَا لاَ تُثْبِتِ",
+                translation: "Isim Maushul (kata sambung) adalah 'Alladzi' (untuk mudzakkar), dan untuk mu'annats adalah 'Allati'. Adapun huruf ya' ketika keduanya ditasniyahkan (dijadikan dua), janganlah engkau tetapkan (buanglah).",
+                syarah: "Isim maushul khusus (nash): الَّذِي (mufrad mudzakkar) dan الَّتِي (mufrad mu'annats). Ketika bentuk mutsanna (dua), ya'-nya dibuang menjadi اللَّذَانِ / اللَّذَيْنِ dan اللَّتَانِ / اللَّتَيْنِ."
+            },
+            {
+                number: 94,
+                chapterId: 'isyarah_maushul',
+                shadr: "وَكُلُّهَا يَلْزَمُ بَعْدَهُ صِلَهْ",
+                ajuz: "عَلَى ضَمِيرٍ لاَئِقٍ مُشْتَمِلَهْ",
+                translation: "Setiap isim maushul wajib diikuti oleh Shilah setelahnya, yang mengandung dhamir (kata ganti) yang sesuai dengan isim maushul tersebut (disebut 'A'id).",
+                syarah: "Setiap Isim Maushul membutuhkan Shilah Maushul (berupa jumlah atau syibhul jumlah) dan di dalam shilah harus ada dhamir 'A'id yang kembali kepada maushul dalam hal jenis dan bilangan, contoh: جَاءَ الَّذِي أَكْرَمْتُهُ."
+            },
+
+            // === BAB 7: AL-MUBTADA' WAL KHABAR (113-145) ===
+            {
+                number: 113,
+                chapterId: 'mubtada',
+                shadr: "مُبْتَدَأٌ زَيْدٌ وَعَاذِرٌ خَبَرْ",
+                ajuz: "إِنْ قُلْتَ زَيْدٌ عَاذِرٌ مَنِ اعْتَذَرْ",
+                translation: "Lafaz 'Zaidun' adalah Mubtada' dan 'Adzirun' adalah Khabar, apabila engkau mengucapkan: 'Zaidun 'adzirun mani'tadzar' (Zaid adalah orang yang memaafkan siapa saja yang meminta maaf).",
+                syarah: "Mubtada' ada dua macam: (1) Mubtada' yang memiliki Khabar (seperti contoh: زَيْدٌ عَاذِرٌ), dan (2) Mubtada' berupa isim sifat (isim fa'il/maf'ul) yang didahului nafyu atau istifham sehingga mencukupkan diri dengan fa'il/na'ib fa'il-nya (dibahas di bait ke-114)."
+            },
+            {
+                number: 115,
+                chapterId: 'mubtada',
+                shadr: "وَرَفَعُوا مُبْتَدَأً بِالاِبْتِدَا",
+                ajuz: "كَذَاكَ رَفْعُ خَبَرٍ بِالْمُبْتَدَا",
+                translation: "Ulama nahwu merafa'-kan Mubtada' disebabkan oleh 'Ibtida' (amil ma'nawi berada di awal kalimat), demikian pula merafa'-kan Khabar disebabkan oleh Mubtada' itu sendiri.",
+                syarah: "Menurut mazhab Bashrah yang dipilih Ibnu Malik: Amil yang merafa'-kan Mubtada' adalah amil ma'nawi (Ibtida', yaitu keterbebasannya dari amil lafzhi), sedangkan amil yang merafa'-kan Khabar adalah Mubtada' (amil lafzhi)."
+            },
+            {
+                number: 116,
+                chapterId: 'mubtada',
+                shadr: "وَالْخَبَرُ الْجُزْءُ الْمُتِمُّ الْفَائِدَهْ",
+                ajuz: "كَاللَّهُ بَرٌّ وَالأَيَادِي شَاهِدَهْ",
+                translation: "Khabar adalah bagian kalimat yang menyempurnakan faedah (bersama mubtada'), seperti contoh: 'Allahu barrun wal ayadi syahidah' (Allah Maha Baik dan berbagai nikmat menjadi saksinya).",
+                syarah: "Khabar adalah predikat yang menyempurnakan makna mubtada' sehingga tersusun jumlah mufidah. Contoh indah dari Ibnu Malik: اللَّهُ بَرٌّ (Allah Maha Baik)."
+            },
+            {
+                number: 117,
+                chapterId: 'mubtada',
+                shadr: "وَمُفْرَدًا يَأْتِي وَيَأْتِي جُمْلَهْ",
+                ajuz: "حَاوِيَةً مَعْنَى الَّذِي سِيقَتْ لَهْ",
+                translation: "Khabar terkadang datang dalam bentuk Mufrad (tunggal/bukan jumlah), dan terkadang datang dalam bentuk Jumlah (kalimat) yang mengandung makna (dhamir rabith) yang mengikatnya dengan mubtada'.",
+                syarah: "Khabar terbagi menjadi Mufrad (bukan jumlah dan bukan syibhul jumlah, meskipun berbentuk mutsanna/jamak, seperti الزَّيْدُونَ قَائِمُونَ) dan Ghairu Mufrad (Jumlah Ismiyyah, Jumlah Fi'liyyah, Zharaf, atau Jar-Majrur)."
+            },
+            {
+                number: 121,
+                chapterId: 'mubtada',
+                shadr: "وَلاَ يَجُوزُ الاِبْتِدَا بِالنَّكِرَهْ",
+                ajuz: "مَا لَمْ تُفِدْ كَعِنْدَ زَيْدٍ نَمِرَهْ",
+                translation: "Tidak diperbolehkan memulai mubtada' dengan isim nakirah selama ia tidak memberikan faedah (takhshish/ta'mim), seperti contoh: ''Inda Zaidin namirah' (Di sisi Zaid ada pakaian bergaris).",
+                syarah: "Hukum asal Mubtada' haruslah Isim Ma'rifat karena hukum dihukumi atas sesuatu yang sudah diketahui. Namun boleh menggunakan Nakirah jika ada musawwigh (faktor yang membolehkan), seperti didahului khabar berupa zharaf/jar-majrur (عِنْدَ زَيْدٍ نَمِرَةٌ), didahului istifham (هَلْ فَتًى فِيكُمْ), atau nafyu (مَا خِلٌّ لَنَا)."
+            },
+
+            // === BAB 8: KANA & INNA WA AKHAWATUHA (146-196) ===
+            {
+                number: 146,
+                chapterId: 'nawasikh',
+                shadr: "تَرْفَعُ كَانَ الْمُبْتَدَا اسْمًا وَالْخَبَرْ",
+                ajuz: "تَنْصِبُهُ كَكَانَ سَيِّدًا عُمَرْ",
+                translation: "'Kana' merafa'-kan mubtada' sebagai isimnya dan menashab-kan khabar sebagai khabarnya, seperti contoh: 'Kana sayyidan 'Umar' (Adalah Umar seorang pemimpin).",
+                syarah: "Bab Nawasikh (penghapus hukum mubtada'-khabar). 'Kana' dan saudara-saudaranya merafa'-kan mubtada' (menjadi Isim Kana) dan menashab-kan khabar (menjadi Khabar Kana). Contohnya: كَانَ سَيِّدًا عُمَرُ ('Umaru = Isim Kana mu'akhkhar marfu', sayyidan = Khabar Kana muqaddam manshub)."
+            },
+            {
+                number: 147,
+                chapterId: 'nawasikh',
+                shadr: "كَكَانَ ظَلَّ بَاتَ أَضْحَى أَصْبَحَا",
+                ajuz: "أَمْسَى وَصَارَ لَيْسَ زَالَ بَرِحَا",
+                translation: "Seperti 'Kana' (dalam pengamalannya) adalah: 'Zhalla', 'Bata', 'Adhha', 'Ashbaha', 'Amsa', 'Shara', 'Laisa', 'Zala', 'Bariha'...",
+                syarah: "Saudara-saudara Kana berjumlah 13 fi'il: (1) Yang beramal tanpa syarat (8 fi'il): كَانَ، ظَلَّ، بَاتَ، أَضْحَى، أَصْبَحَ، أَمْسَى، صَارَ، لَيْسَ. (2) Yang beramal dengan syarat didahului nafyu/nahi/istifham (4 fi'il): زَالَ، بَرِحَ، فَتِئَ، انْفَكَّ. (3) Yang didahului 'ma' mashdariyah zharfiyyah (1 fi'il): دَامَ (pada bait ke-148)."
+            },
+            {
+                number: 175,
+                chapterId: 'nawasikh',
+                shadr: "لِإِنَّ أَنَّ لَيْتَ لَكِنَّ لَعَلّ",
+                ajuz: "كَأَنَّ عَكْسُ مَا لِكَانَ مِنْ عَمَلْ",
+                translation: "Bagi 'Inna', 'Anna', 'Laita', 'Lakinna', 'La'alla', dan 'Ka'anna' berlaku kebalikan dari pengamalan yang dimiliki oleh 'Kana'.",
+                syarah: "Inna dan saudara-saudaranya (6 huruf musyabbahah bil fi'li) beramal kebalikan dari Kana: menashab-kan Mubtada' (menjadi Isim Inna) dan merafa'-kan Khabar (menjadi Khabar Inna), contoh: إِنَّ اللَّهَ غَفُورٌ."
+            },
+            {
+                number: 176,
+                chapterId: 'nawasikh',
+                shadr: "كَإِنَّ زَيْدًا عَالِمٌ بِأَنِّي",
+                ajuz: "كُفْءٌ وَلَكِنَّ ابْنَهُ ذُو ضِغْنِ",
+                translation: "Seperti contoh: 'Inna Zaidan 'alimun bi'anni kuf'un wa lakinna ibnahu dzu dhighni' (Sesungguhnya Zaid mengetahui bahwa aku sepadan, akan tetapi anaknya memiliki rasa dengki).",
+                syarah: "Contoh penerapan amal Inna, Anna, dan Lakinna sekaligus dalam satu bait: 'Zaidan' manshub, ''alimun' marfu'; ya' mutakallim pada 'anni' manshub mahallan, 'kuf'un' marfu'; 'ibnahu' manshub, 'dzu' marfu' dengan wawu."
+            },
+
+            // === BAB 9: AL-FA'IL & NA'IB AL-FA'IL (225-266) ===
+            {
+                number: 225,
+                chapterId: 'fail',
+                shadr: "الْفَاعِلُ الَّذِي كَمَرْفُوعَيْ أَتَى",
+                ajuz: "زَيْدٌ مُنِيرًا وَجْهُهُ نِعْمَ الْفَتَى",
+                translation: "Fa'il adalah isim yang seperti dua isim marfu' pada contoh: 'Ata Zaidun muniran wajhuhu ni'mal fata' (Telah datang Zaid dalam keadaan berseri wajahnya, dialah sebaik-baik pemuda).",
+                syarah: "Fa'il adalah isim marfu' yang disandari fi'il (atau syibhul fi'il) yang mabni ma'lum dan terletak setelahnya. Contoh dalam bait: 'Zaidun' (fa'il dari fi'il 'Ata'), 'wajhuhu' (fa'il dari isim fa'il 'muniran'), dan 'al-fata' (fa'il dari fi'il jamid 'ni'ma')."
+            },
+            {
+                number: 226,
+                chapterId: 'fail',
+                shadr: "وَبَعْدَ فِعْلٍ فَاعِلٌ فَإِنْ ظَهَرْ",
+                ajuz: "فَهْوَ وَإِلاَّ فَضَمِيرٌ اسْتَتَرْ",
+                translation: "Dan setelah fi'il terdapat Fa'il; apabila ia tampak (isim zhahir/dhamir bariz) maka itulah fa'ilnya, dan jika tidak tampak maka ia berupa dhamir mustatir (tersembunyi).",
+                syarah: "Setiap fi'il pasti memiliki Fa'il yang terletak setelahnya (tidak boleh mendahului fi'il). Jika tidak disebutkan secara zhahir (seperti قَامَ زَيْدٌ), maka fa'ilnya adalah dhamir mustatir (seperti زَيْدٌ قَامَ, fa'ilnya dhamir huwa kembali ke Zaid)."
+            },
+            {
+                number: 252,
+                chapterId: 'fail',
+                shadr: "يَنُوبُ مَفْعُولٌ بِهِ عَنْ فَاعِلِ",
+                ajuz: "فِيمَا لَهُ كَنِيلَ خَيْرُ نَائِلِ",
+                translation: "Maf'ul bih menggantikan posisi Fa'il (menjadi Na'ibul Fa'il) dalam seluruh hukumnya (rafa', wajib diakhirkan, dll.), seperti contoh: 'Nila khairu na'ili' (Telah diraih sebaik-baik pemberian).",
+                syarah: "Apabila Fa'il dihapus (karena sudah diketahui, tidak diketahui, atau tujuan balaghah), maka Maf'ul Bih menggantikan posisinya dan mengambil hukum Fa'il (menjadi marfu'), sementara fi'ilnya diubah ke bentuk mabni majhul (seperti نَالَ menjadi نِيلَ)."
+            },
+
+            // === BAB 10: KHATIMAH / PENUTUP (1000-1002) ===
+            {
+                number: 1000,
+                chapterId: 'khatimah',
+                shadr: "وَمَا بِجَمْعِهِ عُنِيتُ قَدْ كَمَلْ",
+                ajuz: "نَظْمًا عَلَى جُلِّ الْمُهِمَّاتِ اشْتَمَلْ",
+                translation: "Dan apa yang aku bersungguh-sungguh menghimpunnya telah sempurna, berupa nadhom yang mencakup mayoritas kaidah-kaidah penting ilmu nahwu dan sharaf.",
+                syarah: "Bait ke-1000 menandai genapnya seribu bait Alfiyah. Imam Ibnu Malik bersyukur bahwa ikhtiar keras beliau menyusun kaidah penting Nahwu-Sharaf telah rampung dengan sempurna."
+            },
+            {
+                number: 1001,
+                chapterId: 'khatimah',
+                shadr: "أَحْصَى مِنَ الْكَافِيَةِ الْخُلاَصَهْ",
+                ajuz: "كَمَا اقْتَضَى غِنًى بِلاَ خَصَاصَهْ",
+                translation: "Nadhom ini merangkum inti sari dari kitab Al-Kafiyah (Asy-Syafiyah), sebagaimana ia memberikan kecukupan ilmu tanpa kekurangan sedikit pun.",
+                syarah: "Alfiyah ini merupakan ringkasan padat dari kitab beliau sebelumnya yang lebih luas yaitu 'Al-Kafiyah Asy-Syafiyah' (sekitar 3.000 bait), namun tetap mencakup seluruh poin esensial tanpa mengurangi keutuhannya."
+            },
+            {
+                number: 1002,
+                chapterId: 'khatimah',
+                shadr: "فَأَحْمَدُ اللَّهَ مُصَلِّيًا عَلَى",
+                ajuz: "مُحَمَّدٍ خَيْرِ نَبِيٍّ أُرْسِلاَ",
+                translation: "Maka aku memuji Allah seraya bershalawat atas Nabi Muhammad ﷺ, sebaik-baik Nabi yang telah diutus.",
+                syarah: "Sebagaimana beliau membuka kitab dengan hamdalah dan shalawat kepada Rasulullah ﷺ pada bait pertama, Imam Ibnu Malik menutup bait ke-1002 (bait pamungkas Alfiyah) dengan pujian kepada Allah dan shalawat kepada Nabi Muhammad ﷺ."
+            }
+        ];
+
+        // =========================================================================
+        // STATE APLIKASI
+        // =========================================================================
+        const state = {
+            selectedChapter: 'all',
+            searchQuery: '',
+            onlySaved: false,
+            showHarakat: true,
+            showTranslation: true,
+            expandAllSyarah: false,
+            fontSize: localStorage.getItem('alfiyah_fontSize') || 'md',
+            darkMode: localStorage.getItem('alfiyah_darkMode') === 'true',
+            bookmarks: JSON.parse(localStorage.getItem('alfiyah_bookmarks') || '[]'),
+            openSyarahIds: new Set(),
+            quiz: {
+                currentQuestion: null,
+                questionCount: 1,
+                correct: 0,
+                wrong: 0,
+                answered: false
+            }
+        };
+
+        // =========================================================================
+        // UTILITAS TEKS ARAB (PENGHAPUS HARAKAT & NORMALISASI PENCARIAN)
+        // =========================================================================
+        function stripHarakat(text) {
+            // Menghapus fathah, dammah, kasrah, sukun, syaddah, tanwin, maddah, dll.
+            return text.replace(/[\u064B-\u065F\u0670]/g, '');
+        }
+
+        function normalizeForSearch(text) {
+            return stripHarakat(text)
+                .toLowerCase()
+                .replace(/[أإآ]/g, 'ا')
+                .replace(/ى/g, 'ي')
+                .replace(/ة/g, 'ه');
+        }
+
+        // =========================================================================
+        // INISIALISASI TEMA & UKURAN FONT
+        // =========================================================================
+        function applyTheme() {
+            const html = document.documentElement;
+            const icon = document.getElementById('themeIcon');
+            if (state.darkMode) {
+                html.classList.add('dark');
+                icon.className = 'ph-fill ph-sun text-xl';
+            } else {
+                html.classList.remove('dark');
+                icon.className = 'ph-fill ph-moon-stars text-xl';
+            }
+            localStorage.setItem('alfiyah_darkMode', state.darkMode);
+        }
+
+        function applyFontSize() {
+            const body = document.body;
+            body.classList.remove('font-arab-sm', 'font-arab-md', 'font-arab-lg');
+            body.classList.add(`font-arab-${state.fontSize}`);
+
+            document.querySelectorAll('.font-size-btn').forEach(btn => {
+                if (btn.dataset.font === state.fontSize) {
+                    btn.classList.add('bg-emerald-700', 'text-gold-400', 'font-bold');
+                    btn.classList.remove('text-slate-300');
+                } else {
+                    btn.classList.remove('bg-emerald-700', 'text-gold-400', 'font-bold');
+                    btn.classList.add('text-slate-300');
+                }
+            });
+            localStorage.setItem('alfiyah_fontSize', state.fontSize);
+        }
+
+        // =========================================================================
+        // RENDER DAFTAR BAB (SIDEBAR)
+        // =========================================================================
+        function renderChapters() {
+            const container = document.getElementById('chapterList');
+            container.innerHTML = CHAPTERS.map(ch => {
+                const count = ch.id === 'all' 
+                    ? BAITS.length 
+                    : BAITS.filter(b => b.chapterId === ch.id).length;
+                const isActive = state.selectedChapter === ch.id && !state.onlySaved;
+
+                return `
+                    <button 
+                        onclick="selectChapter('${ch.id}')"
+                        class="w-full text-left px-3.5 py-2.5 rounded-xl transition flex items-center justify-between gap-2 group ${
+                            isActive 
+                            ? 'bg-emerald-800 text-white shadow-sm border border-gold-500/40' 
+                            : 'hover:bg-parchment-200/80 dark:hover:bg-emerald-900/50 text-slate-700 dark:text-slate-200'
+                        }"
+                    >
+                        <div class="min-w-0">
+                            <div class="font-semibold text-xs sm:text-sm truncate ${isActive ? 'text-gold-300' : 'text-emerald-950 dark:text-parchment-50'}">
+                                ${ch.title}
+                            </div>
+                            <div class="flex items-center gap-2 mt-0.5">
+                                <span class="font-arabic text-sm ${isActive ? 'text-white/90' : 'text-gold-600 dark:text-gold-400'}">${ch.arabic}</span>
+                                <span class="text-[10px] opacity-75">• ${ch.range}</span>
+                            </div>
+                        </div>
+                        <span class="shrink-0 px-2 py-0.5 text-[11px] font-bold rounded-lg ${
+                            isActive 
+                            ? 'bg-gold-500 text-emerald-950' 
+                            : 'bg-parchment-300/70 dark:bg-emerald-950 text-emerald-900 dark:text-emerald-300'
+                        }">
+                            ${count}
+                        </span>
+                    </button>
+                `;
+            }).join('');
+        }
+
+        // =========================================================================
+        // RENDER KARTU BAIT NADHOM
+        // =========================================================================
+        function getChapterInfo(chapterId) {
+            return CHAPTERS.find(c => c.id === chapterId) || CHAPTERS[0];
+        }
+
+        function renderBaits() {
+            const container = document.getElementById('baitContainer');
+            const emptyState = document.getElementById('emptyState');
+            const queryNorm = normalizeForSearch(state.searchQuery.trim());
+
+            const filtered = BAITS.filter(bait => {
+                // Filter Bab
+                if (!state.onlySaved && state.selectedChapter !== 'all' && bait.chapterId !== state.selectedChapter) {
+                    return false;
+                }
+                // Filter Hafalan Saya
+                if (state.onlySaved && !state.bookmarks.includes(bait.number)) {
+                    return false;
+                }
+                // Filter Pencarian
+                if (queryNorm) {
+                    const ch = getChapterInfo(bait.chapterId);
+                    const searchableText = normalizeForSearch(
+                        `${bait.number} ${bait.shadr} ${bait.ajuz} ${bait.translation} ${bait.syarah} ${ch.title} ${ch.arabic}`
+                    );
+                    return searchableText.includes(queryNorm);
+                }
+                return true;
+            });
+
+            // Update counter & badge
+            document.getElementById('visibleCount').textContent = filtered.length;
+            updateBookmarkCounters();
+
+            if (state.onlySaved) {
+                document.getElementById('activeChapterBadge').textContent = 'Bait Tersimpan / Hafalan Saya';
+                document.getElementById('activeChapterArabic').textContent = 'الْمَحْفُوظَاتُ';
+            } else {
+                const activeCh = getChapterInfo(state.selectedChapter);
+                document.getElementById('activeChapterBadge').textContent = activeCh.title;
+                document.getElementById('activeChapterArabic').textContent = activeCh.arabic;
+            }
+
+            if (filtered.length === 0) {
+                container.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+
+            container.innerHTML = filtered.map(bait => {
+                const ch = getChapterInfo(bait.chapterId);
+                const isSaved = state.bookmarks.includes(bait.number);
+                const isSyarahOpen = state.expandAllSyarah || state.openSyarahIds.has(bait.number);
+                const shadrDisplay = state.showHarakat ? bait.shadr : stripHarakat(bait.shadr);
+                const ajuzDisplay = state.showHarakat ? bait.ajuz : stripHarakat(bait.ajuz);
+
+                return `
+                    <article id="bait-${bait.number}" class="bg-white/95 dark:bg-[#0d1f1a]/95 rounded-2xl border ${isSaved ? 'border-gold-500/80 ring-1 ring-gold-500/30' : 'border-parchment-300 dark:border-emerald-800/80'} shadow-xs hover:shadow-md transition-all overflow-hidden">
+                        
+                        <!-- Header Kartu Bait -->
+                        <div class="px-4 sm:px-5 py-2.5 bg-parchment-100/80 dark:bg-emerald-950/70 border-b border-parchment-200 dark:border-emerald-800/70 flex flex-wrap items-center justify-between gap-2">
+                            <div class="flex items-center gap-2.5">
+                                <span class="inline-flex items-center justify-center px-2.5 py-1 rounded-lg bg-emerald-900 dark:bg-emerald-800 text-gold-400 font-bold text-xs border border-gold-500/40">
+                                    Bait #${bait.number}
+                                </span>
+                                <span class="text-xs font-medium text-emerald-900 dark:text-emerald-200">
+                                    ${ch.title}
+                                </span>
+                            </div>
+
+                            <!-- Tombol Aksi Cepat: Salin & Bookmark Hafalan -->
+                            <div class="flex items-center gap-1.5">
+                                <button 
+                                    onclick="copyBait(${bait.number})" 
+                                    class="p-1.5 sm:px-2.5 sm:py-1 rounded-lg text-xs font-medium bg-white dark:bg-emerald-900/70 text-slate-600 dark:text-slate-200 border border-parchment-300 dark:border-emerald-700 hover:border-gold-500 hover:text-emerald-800 dark:hover:text-gold-400 flex items-center gap-1 transition"
+                                    title="Salin Teks Arab & Terjemahan"
+                                >
+                                    <i class="ph ph-copy text-base"></i>
+                                    <span class="hidden sm:inline">Salin</span>
+                                </button>
+
+                                <button 
+                                    onclick="toggleBookmark(${bait.number})" 
+                                    class="p-1.5 sm:px-2.5 sm:py-1 rounded-lg text-xs font-semibold border flex items-center gap-1 transition ${
+                                        isSaved 
+                                        ? 'bg-gold-500 text-emerald-950 border-gold-600 shadow-xs' 
+                                        : 'bg-white dark:bg-emerald-900/70 text-slate-600 dark:text-slate-200 border-parchment-300 dark:border-emerald-700 hover:border-gold-500'
+                                    }"
+                                    title="${isSaved ? 'Hapus dari Hafalan' : 'Tandai Sudah Hafal / Simpan'}"
+                                >
+                                    <i class="${isSaved ? 'ph-fill' : 'ph'} ph-bookmark-simple text-base"></i>
+                                    <span class="hidden sm:inline">${isSaved ? 'Hafal' : 'Simpan'}</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Badan Nadhom Arab (2 Syathr Sejajar Klasik) -->
+                        <div class="px-4 sm:px-6 py-5 sm:py-6 bg-gradient-to-b from-transparent to-parchment-50/60 dark:to-emerald-950/30">
+                            <div class="arabic-text grid grid-cols-1 md:grid-cols-[1fr_auto_1fr] items-center gap-2 md:gap-4 text-center text-emerald-950 dark:text-parchment-50 font-bold" dir="rtl">
+                                <!-- Shadr (Syathr Pertama) -->
+                                <div class="md:text-left tracking-normal select-all">
+                                    ${shadrDisplay}
+                                </div>
+                                
+                                <!-- Ornamen Pemisah Tengah -->
+                                <div class="bait-divider py-0.5">
+                                    <span>۞</span>
+                                </div>
+                                
+                                <!-- 'Ajuz (Syathr Kedua) -->
+                                <div class="md:text-right tracking-normal select-all">
+                                    ${ajuzDisplay}
+                                </div>
+                            </div>
+
+                            <!-- Terjemahan Bahasa Indonesia -->
+                            ${state.showTranslation ? `
+                                <div class="mt-4 pt-4 border-t border-dashed border-parchment-300 dark:border-emerald-800/70">
+                                    <p class="text-sm sm:text-[15px] text-slate-700 dark:text-slate-200 leading-relaxed">
+                                        <span class="font-semibold text-emerald-800 dark:text-gold-400">Artinya:</span> "${bait.translation}"
+                                    </p>
+                                </div>
+                            ` : ''}
+
+                            <!-- Tombol Accordion Syarah Ringkas -->
+                            <div class="mt-4 flex items-center justify-between">
+                                <button 
+                                    onclick="toggleSyarah(${bait.number})" 
+                                    class="inline-flex items-center gap-1.5 text-xs font-semibold text-emerald-800 dark:text-gold-400 hover:text-emerald-600 dark:hover:text-gold-300 py-1 px-2.5 rounded-lg bg-emerald-900/5 dark:bg-emerald-900/40 border border-emerald-800/15 dark:border-gold-500/20 transition"
+                                >
+                                    <i class="ph-fill ph-book-open-text text-base"></i>
+                                    <span>Syarah Ringkas (Ibnu 'Aqil)</span>
+                                    <i class="ph-bold ph-caret-down transition-transform duration-200 ${isSyarahOpen ? 'rotate-180' : ''}"></i>
+                                </button>
+                            </div>
+
+                            <!-- Isi Syarah Ringkas -->
+                            ${isSyarahOpen ? `
+                                <div class="mt-3 p-3.5 sm:p-4 rounded-xl bg-parchment-100/90 dark:bg-emerald-950/90 border-l-4 border-gold-500 text-xs sm:text-sm text-slate-700 dark:text-slate-300 leading-relaxed">
+                                    <div class="font-bold text-emerald-900 dark:text-gold-400 mb-1 flex items-center gap-1.5">
+                                        <i class="ph-fill ph-sparkle"></i>
+                                        <span>Keterangan Kaidah Nahwu / Sharaf:</span>
+                                    </div>
+                                    <p>${bait.syarah}</p>
+                                </div>
+                            ` : ''}
+                        </div>
+                    </article>
+                `;
+            }).join('');
+        }
+
+        // =========================================================================
+        // INTERAKSI NAVIGASI, BOOKMARK, COPY & TOGGLE
+        // =========================================================================
+        function selectChapter(chapterId) {
+            state.selectedChapter = chapterId;
+            state.onlySaved = false;
+            updateFilterButtonsUI();
+            renderChapters();
+            renderBaits();
+            closeMobileSidebar();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleBookmark(baitNumber) {
+            const idx = state.bookmarks.indexOf(baitNumber);
+            if (idx === -1) {
+                state.bookmarks.push(baitNumber);
+                showToast(`Bait #${baitNumber} ditambahkan ke daftar hafalan!`);
+            } else {
+                state.bookmarks.splice(idx, 1);
+                showToast(`Bait #${baitNumber} dihapus dari daftar hafalan.`);
+            }
+            localStorage.setItem('alfiyah_bookmarks', JSON.stringify(state.bookmarks));
+            renderBaits();
+        }
+
+        function updateBookmarkCounters() {
+            const savedCount = state.bookmarks.length;
+            const totalCount = BAITS.length;
+            const percent = Math.round((savedCount / totalCount) * 100);
+
+            document.getElementById('headerBookmarkCount').textContent = savedCount;
+            document.getElementById('headerTotalCount').textContent = totalCount;
+            document.getElementById('savedFilterCount').textContent = savedCount;
+            document.getElementById('progressPercent').textContent = `${percent}%`;
+            document.getElementById('progressBar').style.width = `${percent}%`;
+
+            const label = document.getElementById('progressLabel');
+            if (savedCount === 0) {
+                label.textContent = 'Tandai bait dengan ikon pita untuk mencatat hafalan Anda.';
+            } else if (savedCount < totalCount) {
+                label.textContent = `MasyaAllah! Anda telah menghafal ${savedCount} dari ${totalCount} bait inti.`;
+            } else {
+                label.textContent = 'Alhamdulillah! Seluruh bait inti dalam aplikasi ini telah Anda hafal.';
+            }
+        }
+
+        function toggleSyarah(baitNumber) {
+            if (state.expandAllSyarah) {
+                state.expandAllSyarah = false;
+                document.getElementById('allSyarahText').textContent = 'Buka Semua Syarah';
+            }
+            if (state.openSyarahIds.has(baitNumber)) {
+                state.openSyarahIds.delete(baitNumber);
+            } else {
+                state.openSyarahIds.add(baitNumber);
+            }
+            renderBaits();
+        }
+
+        function copyBait(baitNumber) {
+            const bait = BAITS.find(b => b.number === baitNumber);
+            if (!bait) return;
+
+            const ch = getChapterInfo(bait.chapterId);
+            const textToCopy = `Kitab Alfiyah Ibnu Malik - ${ch.title} (Bait #${bait.number})\n${bait.shadr}  ۞  ${bait.ajuz}\n\nArtinya: "${bait.translation}"`;
+
+            // Menggunakan textarea sementara + document.execCommand('copy') agar aman di dalam iframe
+            const tempInput = document.createElement('textarea');
+            tempInput.value = textToCopy;
+            tempInput.style.position = 'fixed';
+            tempInput.style.opacity = '0';
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                showToast(`Bait #${bait.number} berhasil disalin ke clipboard!`);
+            } catch (err) {
+                showToast('Gagal menyalin teks bait.');
+            }
+            document.body.removeChild(tempInput);
+        }
+
+        function updateFilterButtonsUI() {
+            const allBtn = document.getElementById('filterAllBtn');
+            const savedBtn = document.getElementById('filterSavedBtn');
+
+            if (!state.onlySaved) {
+                allBtn.className = 'flex-1 sm:flex-none px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-emerald-800 text-white shadow-xs transition';
+                savedBtn.className = 'flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-parchment-200/80 dark:bg-emerald-950 text-emerald-900 dark:text-gold-400 border border-parchment-300 dark:border-emerald-800 hover:bg-parchment-300/70 transition';
+            } else {
+                allBtn.className = 'flex-1 sm:flex-none px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-parchment-200/80 dark:bg-emerald-950 text-emerald-900 dark:text-slate-200 border border-parchment-300 dark:border-emerald-800 hover:bg-parchment-300/70 transition';
+                savedBtn.className = 'flex-1 sm:flex-none flex items-center justify-center gap-1.5 px-3.5 py-2.5 rounded-xl text-xs font-semibold bg-gold-500 text-emerald-950 shadow-xs transition';
+            }
+        }
+
+        let toastTimer;
+        function showToast(message) {
+            const toast = document.getElementById('toastNotification');
+            document.getElementById('toastMessage').textContent = message;
+            toast.classList.remove('translate-y-20', 'opacity-0');
+            clearTimeout(toastTimer);
+            toastTimer = setTimeout(() => {
+                toast.classList.add('translate-y-20', 'opacity-0');
+            }, 2600);
+        }
+
+        // =========================================================================
+        // DRAWER SIDEBAR MOBILE
+        // =========================================================================
+        function openMobileSidebar() {
+            document.getElementById('sidebarDrawer').classList.remove('-translate-x-full');
+            document.getElementById('sidebarOverlay').classList.remove('hidden');
+        }
+
+        function closeMobileSidebar() {
+            document.getElementById('sidebarDrawer').classList.add('-translate-x-full');
+            document.getElementById('sidebarOverlay').classList.add('hidden');
+        }
+
+        // =========================================================================
+        // LOGIKA MODE KUIS / MURAJA'AH HAFALAN
+        // =========================================================================
+        function generateQuizQuestion() {
+            state.quiz.answered = false;
+            const feedbackEl = document.getElementById('quizFeedback');
+            feedbackEl.classList.add('hidden');
+
+            // Acak tipe soal: 0 = Lengkapi Syathr Kedua ('Ajuz), 1 = Tebak Bab dari Bait
+            const quizType = Math.random() < 0.65 ? 'complete_bait' : 'guess_chapter';
+            const randomBait = BAITS[Math.floor(Math.random() * BAITS.length)];
+            state.quiz.currentQuestion = { type: quizType, bait: randomBait };
+
+            document.getElementById('quizNumber').textContent = state.quiz.questionCount;
+            const promptEl = document.getElementById('quizPrompt');
+            const arabicQEl = document.getElementById('quizArabicQuestion');
+            const hintEl = document.getElementById('quizHint');
+            const optionsEl = document.getElementById('quizOptions');
+            const badgeEl = document.getElementById('quizTypeBadge');
+
+            if (quizType === 'complete_bait') {
+                badgeEl.textContent = 'Lengkapi Bait';
+                promptEl.textContent = 'Pilih lanjutan syathr kedua (\'Ajuz) yang tepat untuk potongan bait berikut:';
+                arabicQEl.innerHTML = `${randomBait.shadr} &nbsp;<span class="text-gold-500">۞</span>&nbsp; <span class="text-slate-400 text-xl">[ . . . . . . ]</span>`;
+                hintEl.textContent = `Petunjuk: Bait ke-${randomBait.number} (${getChapterInfo(randomBait.chapterId).title})`;
+
+                // Ambil 3 pengecoh acak dari bait lain
+                const distractors = BAITS
+                    .filter(b => b.number !== randomBait.number)
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, 3)
+                    .map(b => b.ajuz);
+
+                const allOptions = [randomBait.ajuz, ...distractors].sort(() => Math.random() - 0.5);
+
+                optionsEl.innerHTML = allOptions.map((optText, idx) => `
+                    <button 
+                        onclick="submitQuizAnswer(this, ${optText === randomBait.ajuz})"
+                        class="quiz-opt-btn w-full text-right px-4 py-3 rounded-xl bg-white dark:bg-emerald-950/70 border border-parchment-300 dark:border-emerald-800 hover:border-gold-500 transition flex items-center justify-between gap-3"
+                    >
+                        <span class="w-7 h-7 shrink-0 rounded-lg bg-parchment-200 dark:bg-emerald-900 text-xs font-bold flex items-center justify-center text-emerald-900 dark:text-gold-400">
+                            ${String.fromCharCode(65 + idx)}
+                        </span>
+                        <span class="font-arabic text-xl sm:text-2xl text-emerald-950 dark:text-parchment-50 flex-1" dir="rtl">
+                            ${optText}
+                        </span>
+                    </button>
+                `).join('');
+
+            } else {
+                badgeEl.textContent = 'Tebak Bab';
+                promptEl.textContent = 'Termasuk dalam bab apakah bait Alfiyah berikut ini?';
+                arabicQEl.innerHTML = `${randomBait.shadr} <span class="text-gold-500 mx-1">۞</span> ${randomBait.ajuz}`;
+                hintEl.textContent = `Petunjuk: Bait ke-${randomBait.number}`;
+
+                const correctChapter = getChapterInfo(randomBait.chapterId);
+                const otherChapters = CHAPTERS
+                    .filter(c => c.id !== 'all' && c.id !== correctChapter.id)
+                    .sort(() => Math.random() - 0.5)
+                    .slice(0, 3);
+
+                const allChapters = [correctChapter, ...otherChapters].sort(() => Math.random() - 0.5);
+
+                optionsEl.innerHTML = allChapters.map((chOpt, idx) => `
+                    <button 
+                        onclick="submitQuizAnswer(this, ${chOpt.id === correctChapter.id})"
+                        class="quiz-opt-btn w-full text-left px-4 py-3 rounded-xl bg-white dark:bg-emerald-950/70 border border-parchment-300 dark:border-emerald-800 hover:border-gold-500 transition flex items-center justify-between gap-3"
+                    >
+                        <div class="flex items-center gap-3">
+                            <span class="w-7 h-7 shrink-0 rounded-lg bg-parchment-200 dark:bg-emerald-900 text-xs font-bold flex items-center justify-center text-emerald-900 dark:text-gold-400">
+                                ${String.fromCharCode(65 + idx)}
+                            </span>
+                            <span class="font-semibold text-sm text-slate-800 dark:text-slate-100">${chOpt.title}</span>
+                        </div>
+                        <span class="font-arabic text-lg text-gold-600 dark:text-gold-400">${chOpt.arabic}</span>
+                    </button>
+                `).join('');
+            }
+        }
+
+        function submitQuizAnswer(btnEl, isCorrect) {
+            if (state.quiz.answered) return;
+            state.quiz.answered = true;
+
+            const { bait } = state.quiz.currentQuestion;
+            const feedbackEl = document.getElementById('quizFeedback');
+
+            // Nonaktifkan semua tombol opsi & soroti jawaban yang benar
+            document.querySelectorAll('.quiz-opt-btn').forEach(btn => {
+                btn.disabled = true;
+                btn.classList.add('opacity-75');
+            });
+
+            btnEl.classList.remove('opacity-75');
+
+            if (isCorrect) {
+                state.quiz.correct++;
+                btnEl.classList.add('!border-emerald-500', '!bg-emerald-50', 'dark:!bg-emerald-900/60');
+                feedbackEl.className = 'p-4 rounded-xl text-sm border bg-emerald-50 dark:bg-emerald-950/90 border-emerald-500/50 text-emerald-950 dark:text-emerald-100';
+                feedbackEl.innerHTML = `
+                    <div class="font-bold text-emerald-700 dark:text-emerald-400 flex items-center gap-1.5 mb-1">
+                        <i class="ph-fill ph-check-circle text-lg"></i>
+                        <span>Ahsanta! Jawaban Anda Tepat.</span>
+                    </div>
+                    <p class="font-arabic text-lg text-right my-1 text-emerald-900 dark:text-gold-300" dir="rtl">${bait.shadr} ۞ ${bait.ajuz}</p>
+                    <p class="text-xs opacity-90"><strong>Artinya:</strong> "${bait.translation}"</p>
+                `;
+            } else {
+                state.quiz.wrong++;
+                btnEl.classList.add('!border-rose-500', '!bg-rose-50', 'dark:!bg-rose-950/60');
+                feedbackEl.className = 'p-4 rounded-xl text-sm border bg-rose-50 dark:bg-rose-950/80 border-rose-500/50 text-rose-950 dark:text-rose-100';
+                feedbackEl.innerHTML = `
+                    <div class="font-bold text-rose-700 dark:text-rose-400 flex items-center gap-1.5 mb-1">
+                        <i class="ph-fill ph-x-circle text-lg"></i>
+                        <span>Kurang Tepat. Mari Muraja'ah Bait Ini:</span>
+                    </div>
+                    <p class="font-arabic text-lg text-right my-1 text-emerald-950 dark:text-gold-300" dir="rtl">${bait.shadr} ۞ ${bait.ajuz}</p>
+                    <p class="text-xs opacity-90"><strong>Bab:</strong> ${getChapterInfo(bait.chapterId).title} — "${bait.translation}"</p>
+                `;
+            }
+
+            document.getElementById('quizScoreCorrect').textContent = state.quiz.correct;
+            document.getElementById('quizScoreWrong').textContent = state.quiz.wrong;
+            feedbackEl.classList.remove('hidden');
+        }
+
+        // =========================================================================
+        // EVENT LISTENERS SAAT HALAMAN DIMUAT
+        // =========================================================================
+        document.addEventListener('DOMContentLoaded', () => {
+            applyTheme();
+            applyFontSize();
+            renderChapters();
+            renderBaits();
+
+            // Toggle Dark Mode
+            document.getElementById('themeToggleBtn').addEventListener('click', () => {
+                state.darkMode = !state.darkMode;
+                applyTheme();
+            });
+
+            // Pengatur Ukuran Font Arab
+            document.querySelectorAll('.font-size-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    state.fontSize = btn.dataset.font;
+                    applyFontSize();
+                });
+            });
+
+            // Toggle Harakat / Syakal
+            document.getElementById('toggleHarakatBtn').addEventListener('click', () => {
+                state.showHarakat = !state.showHarakat;
+                const icon = document.getElementById('harakatIcon');
+                const btn = document.getElementById('toggleHarakatBtn');
+                if (state.showHarakat) {
+                    icon.className = 'ph-bold ph-check-circle text-sm';
+                    btn.classList.add('text-gold-400', 'border-gold-500/40');
+                    btn.classList.remove('text-emerald-300', 'border-emerald-700');
+                } else {
+                    icon.className = 'ph ph-circle text-sm';
+                    btn.classList.remove('text-gold-400', 'border-gold-500/40');
+                    btn.classList.add('text-emerald-300', 'border-emerald-700');
+                }
+                renderBaits();
+            });
+
+            // Toggle Terjemahan
+            document.getElementById('toggleTransBtn').addEventListener('click', () => {
+                state.showTranslation = !state.showTranslation;
+                const icon = document.getElementById('transIcon');
+                const btn = document.getElementById('toggleTransBtn');
+                if (state.showTranslation) {
+                    icon.className = 'ph-bold ph-check-circle text-sm';
+                    btn.classList.add('text-gold-400', 'border-gold-500/40');
+                    btn.classList.remove('text-emerald-300', 'border-emerald-700');
+                } else {
+                    icon.className = 'ph ph-circle text-sm';
+                    btn.classList.remove('text-gold-400', 'border-gold-500/40');
+                    btn.classList.add('text-emerald-300', 'border-emerald-700');
+                }
+                renderBaits();
+            });
+
+            // Buka/Tutup Semua Syarah
+            document.getElementById('toggleAllSyarahBtn').addEventListener('click', () => {
+                state.expandAllSyarah = !state.expandAllSyarah;
+                if (!state.expandAllSyarah) state.openSyarahIds.clear();
+                document.getElementById('allSyarahText').textContent = state.expandAllSyarah 
+                    ? 'Tutup Semua Syarah' 
+                    : 'Buka Semua Syarah';
+                renderBaits();
+            });
+
+            // Pencarian Real-time
+            const searchInput = document.getElementById('searchInput');
+            const clearSearchBtn = document.getElementById('clearSearchBtn');
+            searchInput.addEventListener('input', (e) => {
+                state.searchQuery = e.target.value;
+                clearSearchBtn.classList.toggle('hidden', !state.searchQuery);
+                renderBaits();
+            });
+
+            clearSearchBtn.addEventListener('click', () => {
+                state.searchQuery = '';
+                searchInput.value = '';
+                clearSearchBtn.classList.add('hidden');
+                renderBaits();
+            });
+
+            // Filter Semua vs Hafalan Saya
+            document.getElementById('filterAllBtn').addEventListener('click', () => {
+                state.onlySaved = false;
+                updateFilterButtonsUI();
+                renderChapters();
+                renderBaits();
+            });
+
+            document.getElementById('filterSavedBtn').addEventListener('click', () => {
+                state.onlySaved = true;
+                updateFilterButtonsUI();
+                renderChapters();
+                renderBaits();
+            });
+
+            document.getElementById('resetFilterBtn').addEventListener('click', () => {
+                state.selectedChapter = 'all';
+                state.onlySaved = false;
+                state.searchQuery = '';
+                searchInput.value = '';
+                clearSearchBtn.classList.add('hidden');
+                updateFilterButtonsUI();
+                renderChapters();
+                renderBaits();
+            });
+
+            // Sidebar Drawer Mobile
+            document.getElementById('mobileMenuBtn').addEventListener('click', openMobileSidebar);
+            document.getElementById('closeSidebarBtn').addEventListener('click', closeMobileSidebar);
+            document.getElementById('sidebarOverlay').addEventListener('click', closeMobileSidebar);
+
+            // Modal Kuis / Muraja'ah
+            const quizModal = document.getElementById('quizModal');
+            document.getElementById('openQuizBtn').addEventListener('click', () => {
+                quizModal.classList.remove('hidden');
+                quizModal.classList.add('flex');
+                if (!state.quiz.currentQuestion) {
+                    generateQuizQuestion();
+                }
+            });
+
+            document.getElementById('closeQuizBtn').addEventListener('click', () => {
+                quizModal.classList.add('hidden');
+                quizModal.classList.remove('flex');
+            });
+
+            document.getElementById('nextQuizBtn').addEventListener('click', () => {
+                state.quiz.questionCount++;
+                generateQuizQuestion();
+            });
+
+            document.getElementById('resetQuizScoreBtn').addEventListener('click', () => {
+                state.quiz.questionCount = 1;
+                state.quiz.correct = 0;
+                state.quiz.wrong = 0;
+                document.getElementById('quizScoreCorrect').textContent = '0';
+                document.getElementById('quizScoreWrong').textContent = '0';
+                generateQuizQuestion();
+            });
+        });
+    </script>
+</body>
+</html>
